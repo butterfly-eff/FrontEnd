@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from '../component/common/Header';
 import Layout from '../global/Layout';
 function Home() {
   return (
     <div>
       <Layout>
+        <Header />
         <Test>
           <TestS>Hometest</TestS>
           <TestS>Hometest</TestS>
@@ -40,4 +42,3 @@ const TestS = styled.div`
   justify-content: center;
   margin: 10px;
 `;
-
