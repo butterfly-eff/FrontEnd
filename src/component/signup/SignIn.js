@@ -47,7 +47,10 @@ function SignIn() {
     <>
       <StSignInContainer>
         <StSignInContent onSubmit={handleSubmit(onSignin)}>
-          <p className="title">나비 효과</p>
+          <div className="title">
+            <img src="logo/butterfly.png" alt="logo" />
+            나비 효과
+          </div>
           <div className="signin-enter email">
             <p>이메일</p>
             <div>
@@ -87,9 +90,9 @@ function SignIn() {
             </div>
           </div>
           <button className="signin-btn">이메일로 로그인</button>
-          <p className="go-signup">
-            아직 아이디가 없으신가요? <strong onClick={() => navigate('/signup')}>회원가입하기</strong>
-          </p>
+          <div className="go-signup">
+            <span>아직 아이디가 없으신가요?</span> <strong onClick={() => navigate('/signup')}>회원가입하기</strong>
+          </div>
         </StSignInContent>
       </StSignInContainer>
     </>
@@ -106,34 +109,41 @@ const StSignInContainer = styled.div`
   justify-content: center;
 `;
 const StSignInContent = styled.form`
-  max-width: 650px;
+  max-width: 700px;
   width: 100%;
   height: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  gap: 3%;
+  gap: 2%;
   .title {
-    margin-bottom: 3%;
     display: flex;
-    align-self: center;
-    width: fit-content;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
     position: relative;
-    font-size: 2rem;
+    font-size: 2.3em;
+    font-weight: 700;
+    margin-bottom: 0.7em;
+    color: var(--gray2);
+  }
+  img {
+    width: 50px;
   }
 
   .signin-enter {
     width: 100%;
-    height: 12%;
+    height: 13%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 2%;
     p {
-      width: 30%;
-      max-width: 16%;
+      width: 20%;
+      max-width: 14%;
       padding: 0 1%;
+      color: var(--gray1);
     }
     div {
       width: 100%;
@@ -144,29 +154,35 @@ const StSignInContent = styled.form`
       width: 100%;
       height: 100%;
       box-sizing: border-box;
-      border: 1px solid #555;
+      border: 1px solid #dadada;
       border-radius: 5px;
       padding-left: 10px;
+      ::placeholder {
+        color: #dadada;
+      }
     }
   }
   .signin-btn {
     width: 100%;
-    height: 12%;
+    height: 13%;
     margin-top: 7%;
-    border: 1px solid #555;
+    border: 1px solid transparent;
     border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: var(--green2);
   }
   .go-signup {
     margin-top: 3%;
     display: flex;
-    align-self: center;
-    width: 40%;
-    position: relative;
-    font-size: 0.8rem;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--gray1);
+    gap: 2%;
     strong {
-      position: absolute;
       text-decoration: underline;
-      right: 0;
+      color: var(--gray1);
       cursor: pointer;
     }
   }

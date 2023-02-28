@@ -6,7 +6,10 @@ export default function Header() {
   const navigate = useNavigate();
   return (
     <StHeaderContainer>
-      <div className="title">나비효과</div>
+      <div className="title">
+        <img src="logo/butterfly.png" alt="logo" />
+        나비효과
+      </div>
       <StPagesList>
         {/* 라우터에 맞춰서 수정필요 */}
         <button
@@ -57,12 +60,17 @@ const StHeaderContainer = styled.div`
   border-bottom: 1.5px solid #f2f2f2;
   color: var(--green1);
   .title {
+    width: 40%;
     font-size: 1.5em;
     font-weight: 700;
+  }
+  img {
+    width: 5%;
   }
 `;
 
 const StPagesList = styled.div`
+  width: fit-content;
   button {
     font-size: 0.9em;
     color: var(--green1);
