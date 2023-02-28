@@ -6,8 +6,11 @@ import { useRecoilState } from 'recoil';
 import { loginChk } from '../../store/store';
 import { useMutation } from '@tanstack/react-query';
 import { NicknameChk, EmailChk, SignUpForm } from '../../api/ApiPost';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
+  const navigate = useNavigate();
+
   const [islogin, setIsLogin] = useRecoilState(loginChk);
   const [signup, setSignup] = useState(false);
 
@@ -188,6 +191,9 @@ function SignUp() {
             </label>
           </div>
           <button className="signup-btn">회원가입하기</button>
+          <div className="go-signup">
+            <span>아직 아이디가 없으신가요?</span> <strong onClick={() => navigate('/signin')}>로그인하기</strong>
+          </div>
         </StSignUpContent>
       </StSignUpContainer>
     </>
@@ -203,18 +209,24 @@ const StSignUpContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const StSignUpContent = styled.form`
-  max-width: 650px;
+const StSignUpContent = styled.div`
+  max-width: 700px;
   width: 100%;
   height: 50%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 4%;
+  gap: 2%;
+  .title {
+    font-size: 2.3em;
+    font-weight: 700;
+    margin-bottom: 0.7em;
+    color: var(--gray2);
+  }
   .signup-enter {
     width: 100%;
-    height: 12%;
+    height: 13%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -223,6 +235,7 @@ const StSignUpContent = styled.form`
       width: 30%;
       max-width: 16%;
       padding: 0 1%;
+      color: var(--gray1);
     }
     div {
       width: 100%;
@@ -233,16 +246,22 @@ const StSignUpContent = styled.form`
       width: 100%;
       height: 100%;
       box-sizing: border-box;
-      border: 1px solid #555;
+      border: 1px solid #dadada;
       border-radius: 5px;
       padding-left: 10px;
+      ::placeholder {
+        color: #dadada;
+      }
     }
     button {
-      width: 34%;
+      width: 42%;
       height: 80%;
       box-sizing: border-box;
-      border: 1px solid #555;
+      border: 1px solid transparent;
       border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      background-color: var(--green4);
     }
     .error-message {
       font-size: 0.7rem;
@@ -254,10 +273,25 @@ const StSignUpContent = styled.form`
   }
   .signup-btn {
     width: 100%;
-    height: 12%;
-    box-sizing: border-box;
-    border: 1px solid #555;
+    height: 13%;
+    border: 1px solid transparent;
     border-radius: 5px;
     cursor: pointer;
+    color: #fff;
+    background-color: var(--green2);
+  }
+  .go-signup {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.9rem;
+    color: var(--gray1);
+    gap: 2%;
+    strong {
+      text-decoration: underline;
+      color: var(--gray1);
+      cursor: pointer;
+    }
   }
 `;
