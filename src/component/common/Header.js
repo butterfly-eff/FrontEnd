@@ -77,3 +77,4 @@ const StPagesList = styled.div`
   .noclick {
   }
 `;
+
